@@ -1,4 +1,5 @@
-﻿import asyncio
+﻿import os
+import asyncio
 import logging
 from datetime import datetime
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -14,7 +15,9 @@ logging.basicConfig(level=logging.INFO)
 
 init_db()
 
-session = AiohttpSession(proxy="http://127.0.0.1:12334")
+# Читаем адрес из .env, если его там нет — используем адрес для Docker
+proxy_url = os.getenv("PROXY_URL", "http://host.docker.internal:12334")
+session = AiohttpSession(proxy=proxy_url)
 bot = Bot(token=Config.TELEGRAM_TOKEN, session=session)
 dp = Dispatcher()
 
