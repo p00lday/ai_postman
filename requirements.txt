@@ -1,0 +1,8 @@
+aiogram==3.4.1
+aiohttp-socks==0.8.4
+beautifulsoup4==4.12.3
+requests==2.31.0
+langchain-google-genai==1.0.1
+langchain-core==0.1.52
+apscheduler==3.10.4
+python-dotenv==1.0.1
